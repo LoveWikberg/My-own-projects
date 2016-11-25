@@ -1,0 +1,6 @@
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\bin\Debug\labb14_LoveWikberg.exe.config
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\bin\Debug\labb14_LoveWikberg.exe
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\bin\Debug\labb14_LoveWikberg.pdb
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\obj\Debug\labb14_LoveWikberg.csprojResolveAssemblyReference.cache
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\obj\Debug\labb14_LoveWikberg.exe
+C:\Users\lovew\OneDrive\Dokument\Labbar OOP\labb14_LoveWikberg\labb14_LoveWikberg\obj\Debug\labb14_LoveWikberg.pdb
