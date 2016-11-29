@@ -14,7 +14,7 @@ namespace labb14_LoveWikberg
         public void AddPlayer()
         {
             Console.Clear();
-            Console.Write("Number of players: ");
+            Console.Write("Antal spelare: ");
             int numberOfPlayers;
             bool success = int.TryParse(Console.ReadLine(), out numberOfPlayers);
             ListsAndArrays.playerArray = new Player[numberOfPlayers];
@@ -24,7 +24,7 @@ namespace labb14_LoveWikberg
             {
                 Console.Clear();
                 int player = playerNumber + 1;
-                Console.Write("Enter player number " + player + "'s name: ");
+                Console.Write("Mata in spelare nummer " + player + "'s namn: ");
                 string name = Console.ReadLine();
                 ListsAndArrays.playerArray[playerNumber] = new Player { SmartScale = 1, Name = name, Id = playerNumber };
                 playerNumber++;
@@ -51,11 +51,11 @@ namespace labb14_LoveWikberg
 
             Console.WriteLine("\nNeewb:");
             delHandler.FilterPlayer(neewb);
-            Console.WriteLine("\nMediocre:");
+            Console.WriteLine("\nHyffsad:");
             delHandler.FilterPlayer(mediocre);
-            Console.WriteLine("\nElite:");
+            Console.WriteLine("\n1337:");
             delHandler.FilterPlayer(elite);
-            Console.WriteLine("\nThe Legend");
+            Console.WriteLine("\nBäst i världen");
             delHandler.FilterPlayer(legend);
         }
 

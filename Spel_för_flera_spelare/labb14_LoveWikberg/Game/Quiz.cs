@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace labb14_LoveWikberg.UI_s
 {
-    class GameUI
+    class Quiz
     {
 
         ListsAndArrays list = new ListsAndArrays();
-        public static int playerTurn = 0;
+        
 
         public void QuestionMenu(Action easy, Action normal, Action hard, string typeOfQuestion)
         {
@@ -161,21 +161,21 @@ namespace labb14_LoveWikberg.UI_s
                 if (removeQuestion)
                 {
                     if (array[randomNumber].Difficulty == 1)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 4;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 4;
 
                     else if (array[randomNumber].Difficulty == 2)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 8;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 8;
 
                     else if (array[randomNumber].Difficulty == 3)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 12;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 12;
 
                     list.questionList.Remove(array[randomNumber]);
                 }
 
-                if (playerTurn == ListsAndArrays.playerArray.Length - 1)
-                    playerTurn = 0;
+                if (GameClient.playerTurn == ListsAndArrays.playerArray.Length - 1)
+                    GameClient.playerTurn = 0;
                 else
-                    playerTurn++;
+                    GameClient.playerTurn++;
             }
         }
 
@@ -200,20 +200,20 @@ namespace labb14_LoveWikberg.UI_s
                 if (removeQuestion)
                 {
                     if (array[randomNumber].Difficulty == 1)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 4;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 4;
 
                     else if (array[randomNumber].Difficulty == 2)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 8;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 8;
 
                     else if (array[randomNumber].Difficulty == 3)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 12;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 12;
 
                     list.questionList.Remove(array[randomNumber]);
                 }
-                if (playerTurn == ListsAndArrays.playerArray.Length - 1)
-                    playerTurn = 0;
+                if (GameClient.playerTurn == ListsAndArrays.playerArray.Length - 1)
+                    GameClient.playerTurn = 0;
                 else
-                    playerTurn++;
+                    GameClient.playerTurn++;
             }
 
         }
@@ -238,20 +238,20 @@ namespace labb14_LoveWikberg.UI_s
                 if (removeQuestion)
                 {
                     if (array[randomNumber].Difficulty == 1)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 4;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 4;
 
                     else if (array[randomNumber].Difficulty == 2)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 8;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 8;
 
                     else if (array[randomNumber].Difficulty == 3)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 12;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 12;
 
                     list.questionList.Remove(array[randomNumber]);
                 }
-                if (playerTurn == ListsAndArrays.playerArray.Length - 1)
-                    playerTurn = 0;
+                if (GameClient.playerTurn == ListsAndArrays.playerArray.Length - 1)
+                    GameClient.playerTurn = 0;
                 else
-                    playerTurn++;
+                    GameClient.playerTurn++;
             }
         }
 
@@ -277,21 +277,21 @@ namespace labb14_LoveWikberg.UI_s
                 if (removeQuestion)
                 {
                     if (array[randomNumber].Difficulty == 1)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 4;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 4;
 
                     else if (array[randomNumber].Difficulty == 2)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 8;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 8;
 
                     else if (array[randomNumber].Difficulty == 3)
-                        ListsAndArrays.playerArray[playerTurn].SmartScale += 12;
+                        ListsAndArrays.playerArray[GameClient.playerTurn].SmartScale += 12;
 
                     list.questionList.Remove(array[randomNumber]);
                 }
 
-                if (playerTurn == ListsAndArrays.playerArray.Length - 1)
-                    playerTurn = 0;
+                if (GameClient.playerTurn == ListsAndArrays.playerArray.Length - 1)
+                    GameClient.playerTurn = 0;
                 else
-                    playerTurn++;
+                    GameClient.playerTurn++;
             }
         }
     }

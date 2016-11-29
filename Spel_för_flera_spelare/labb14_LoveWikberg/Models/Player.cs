@@ -11,5 +11,6 @@ namespace labb14_LoveWikberg
         public int SmartScale { get; set; }
         public string Name { get; set; }
         public int Id { get; set; }
+        public bool MemoryPlayed { get; set; }
     }
 }

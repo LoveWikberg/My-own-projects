@@ -49,7 +49,6 @@
     <Compile Include="Filter.cs" />
     <Compile Include="Game\GameClient.cs" />
     <Compile Include="Game\Memory.cs" />
-    <Compile Include="Game\Test.cs" />
     <Compile Include="Models\Node.cs" />
     <Compile Include="Models\Questions\IQuestions.cs" />
     <Compile Include="ListsAndArrays.cs" />

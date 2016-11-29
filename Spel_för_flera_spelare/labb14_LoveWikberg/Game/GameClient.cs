@@ -7,22 +7,26 @@ using System.Threading.Tasks;
 
 namespace labb14_LoveWikberg
 {
-    class GameClient : GameUI
+    class GameClient : Quiz
     {
         UI ui = new UI();
-        Event win = new Event();
+        Event eventObject = new Event();
         Memory mem = new Memory();
+        public static int playerTurn = 0;
 
         public void GameStart()
         {
             if (ListsAndArrays.playerArray == null)
                 ui.AddPlayer();
-            Memory.playerChallenger = ListsAndArrays.playerArray[0].Id;
-            mem.PickOponent();
-            mem.PlayerTurn();
 
             bool loop = true;
-            win.PlayerWin += (sender, e) =>
+
+            eventObject.StartMemory += (sender, e) =>
+            {
+                mem.MemoryGame();
+            };
+
+            eventObject.PlayerWin += (sender, e) =>
             {
                 foreach (var player in ListsAndArrays.playerArray)
                 {
@@ -37,6 +41,7 @@ namespace labb14_LoveWikberg
 
             while (loop)
             {
+                eventObject.CheckStartMemory();
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Det är " + ListsAndArrays.playerArray[playerTurn].Name + "s tur");
@@ -47,7 +52,7 @@ namespace labb14_LoveWikberg
                 Console.WriteLine("[4] Påstående - sant eller falskt");
                 Console.WriteLine("[5] Tillbaka");
                 ui.SeeScore();
-                win.CheckWin();
+                eventObject.CheckWin();
 
                 var input = Console.ReadKey(true).Key;
                 switch (input)

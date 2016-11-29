@@ -13,8 +13,8 @@ namespace labb14_LoveWikberg
         GameClient gameClient = new GameClient();
         public void Start()
         {
-            mem.DisplayGameBoard();
-            Console.ReadKey();
+            //mem.DisplayGameBoard();
+            //Console.ReadKey();
             bool loop = true;
             while (loop)
             {
