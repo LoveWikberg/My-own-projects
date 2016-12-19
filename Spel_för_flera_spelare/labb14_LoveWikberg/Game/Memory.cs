@@ -114,7 +114,7 @@ namespace labb14_LoveWikberg
             {
                 Console.Clear();
                 playerChallenger = ListsAndArrays.playerArray[GameClient.playerTurn].Id;
-                Console.WriteLine("{0} får nu välja om hen vill möta valfri motståndare i ett memory-spel.\nOm hen vinner kommer hens motståndare att bli bestraffad med poängavdrag\nmotsvarande differensen mellan spelarnas poäng. Om den utmanade spelaren vinner kommer den att\nbli belönad med poäng motsvarande samma differens.\nVill du spela memory?", ListsAndArrays.playerArray[GameClient.playerTurn].Name);
+                Console.WriteLine("MEMORY\nRegler kommer snart. Spela memory?"); // Add memory description here.
                 Console.WriteLine("[1] Ja");
                 Console.WriteLine("[2] Nej");
                 var input = Console.ReadKey(true).Key;
@@ -135,25 +135,71 @@ namespace labb14_LoveWikberg
 
         void PickOponent()
         {
-            Console.Clear();
             Event.Total = 0;
             playerChallengedPoints = 0;
             playerChallengerPoints = 0;
 
-            int i = 0;
-            foreach (var player in ListsAndArrays.playerArray)
+            bool loop = true;
+            while (loop)
             {
-                i++;
-                Console.WriteLine(i + ". " + player.Name);
+                Console.Clear();
+                int i = 0;
+                foreach (var player in ListsAndArrays.playerArray)
+                {
+                    i++;
+                    Console.WriteLine(i + ". " + player.Name);
+                }
+                Console.Write("Mata in talet för spelaren som du vill utmana: ");
+                int choice;
+                bool successOne = int.TryParse(Console.ReadLine(), out choice);
+                playerChallenged = ListsAndArrays.playerArray[choice - 1].Id;
+
+                if (playerChallenged == playerChallenger)
+                {
+                    Console.WriteLine("Du kan inte utmana dig själv...");
+                    Console.ReadKey();
+                }
+                else
+                    loop = false;
             }
-            Console.Write("Mata in talet för spelaren som du vill utmana: ");
-            int choice;
-            bool successOne = int.TryParse(Console.ReadLine(), out choice);
-            playerChallenged = ListsAndArrays.playerArray[choice - 1].Id;
 
             Console.Write("\nSkriv in antal försök varje spelare ska få: ");
             bool successTwo = int.TryParse(Console.ReadLine(), out Event.NumberOfTurns);
             Event.NumberOfTurns *= 2;
+        }
+
+        void GameLoop()
+        {
+            foreach (var node in ListsAndArrays.Grid)
+            {
+                node.NotTurned = '?';
+                node.Paired = false;
+            }
+
+            bool loop = true;
+            memoryEvent.MemoryEnd += (sender, e) =>
+            {
+                EndOfMemory();
+                loop = false;
+            };
+
+            turn = 1;
+            while (loop)
+            {
+                if (turn == 1)
+                {
+                    Console.Title = "Det är " + ListsAndArrays.playerArray[playerChallenger].Name + "s tur!";
+                    PlayerTurn(turn);
+                    turn = 2;
+                }
+                else if (turn == 2)
+                {
+                    Console.Title = "Det är " + ListsAndArrays.playerArray[playerChallenged].Name + "s tur!";
+                    PlayerTurn(turn);
+                    turn = 1;
+                }
+                memoryEvent.CheckMemory(1);
+            }
         }
 
         void DisplayGameBoard()
@@ -202,40 +248,6 @@ namespace labb14_LoveWikberg
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("       {0} poäng: " + playerChallengedPoints, ListsAndArrays.playerArray[playerChallenged].Name);
                 Console.ResetColor();
-            }
-        }
-
-        void GameLoop()
-        {
-            foreach (var node in ListsAndArrays.Grid)
-            {
-                node.NotTurned = '?';
-                node.Paired = false;
-            }
-
-            bool loop = true;
-            memoryEvent.MemoryEnd += (sender, e) =>
-            {
-                EndOfMemory();
-                loop = false;
-            };
-
-            turn = 1;
-            while (loop)
-            {
-                if (turn == 1)
-                {
-                    Console.Title = "Det är " + ListsAndArrays.playerArray[playerChallenger].Name + "s tur!";
-                    PlayerTurn(turn);
-                    turn = 2;
-                }
-                else if (turn == 2)
-                {
-                    Console.Title = "Det är " + ListsAndArrays.playerArray[playerChallenged].Name + "s tur!";
-                    PlayerTurn(turn);
-                    turn = 1;
-                }
-                memoryEvent.CheckMemory(1);
             }
         }
 
