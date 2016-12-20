@@ -40,6 +40,7 @@ namespace Detectify_Challenge
                 Console.WriteLine("This program lets you add an unlimited number of URLs to a list. When you have added your");
                 Console.WriteLine("URLs you have the option to get screenshots from every website.");
                 Console.WriteLine("The screenshots will be saved and you can go back and inspect them whenever you wish to!");
+                Console.WriteLine("You need to have Firefox installed on your computer to use this program.");
                 Console.WriteLine("\nUse the number keys to navigate through the program.\n");
                 Console.WriteLine("[1] URL options");
                 Console.WriteLine("[2] Exit");

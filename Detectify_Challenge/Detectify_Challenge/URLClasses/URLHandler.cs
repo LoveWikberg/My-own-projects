@@ -16,6 +16,7 @@ namespace Detectify_Challenge
     {
         IWebDriver driver;
 
+        // Gets a screenshot from every URL/website and saves it as a .jpeg file.
         public void TakeScreenshot()
         {
             var directory = Directory.GetCurrentDirectory();
@@ -36,9 +37,11 @@ namespace Detectify_Challenge
                     Console.WriteLine(e.Message);
                     throw;
                 }
+
             }
         }
 
+        // Lets user add an URL and give the .jpeg file a name.
         public void AddURL()
         {
             bool loop = true;
