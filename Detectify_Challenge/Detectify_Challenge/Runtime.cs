@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
+using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Detectify_Challenge
 {
@@ -14,9 +16,22 @@ namespace Detectify_Challenge
 
         public void Start()
         {
-            var directoryFile = Directory.GetCurrentDirectory() + "\\URL.json";
-            if (SaveAndLoad.ReadFromJsonFile(directoryFile) != null)
-                Lists.URLList = SaveAndLoad.ReadFromJsonFile(directoryFile).ToList();
+            #region Read from file
+            try
+            {
+                var directoryFile = Directory.GetCurrentDirectory() + "\\URL.json";
+                if (SaveAndLoad.ReadFromJsonFile(directoryFile) != null)
+                    Lists.URLList = SaveAndLoad.ReadFromJsonFile(directoryFile).ToList();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An error occurred, restarting application...");
+                System.Threading.Thread.Sleep(2000);
+                Process.Start(Application.ExecutablePath);
+                Environment.Exit(-1);
+                Application.Exit();
+            }
+            #endregion
 
             bool loop = true;
             while (loop)

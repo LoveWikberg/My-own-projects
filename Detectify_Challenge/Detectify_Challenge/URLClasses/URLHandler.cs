@@ -75,6 +75,11 @@ namespace Detectify_Challenge
                     Lists.URLList.Add(new URL { URLLink = url, URLFileName = urlName });
                     var directoryFile = Directory.GetCurrentDirectory() + "\\URL.json";
                     SaveAndLoad.WriteToJsonFile(directoryFile, Lists.URLList);
+
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("URL succesfully added to list, press any key to continue...");
+                    Console.ResetColor();
+                    Console.ReadKey();
                     loop = false;
                 }
             }
